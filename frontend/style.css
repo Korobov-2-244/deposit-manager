@@ -1,61 +1,130 @@
+/* === ОСНОВНОЙ СТИЛЬ === */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #f0f2f5;
   margin: 0;
+  background: linear-gradient(135deg, #ffeef8, #fff5f9);
+  overflow: hidden;
+  position: relative;
 }
 
+/* === КОНТЕЙНЕР === */
 .container {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  width: 400px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+  width: 420px;
   text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 182, 193, 0.3);
+  z-index: 10;
+  position: relative;
 }
 
-h1 { margin-bottom: 1.5rem; color: #1a73e8; }
+h1 {
+  color: #d81b60;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-shadow: 0 2px 5px rgba(216, 27, 96, 0.1);
+}
 
+/* === КНОПКИ === */
 button {
   margin: 0.5rem 0;
-  padding: 0.6rem 1.2rem;
-  background: #1a73e8;
+  padding: 0.7rem 1.4rem;
+  background: linear-gradient(to right, #ff8a80, #ff80ab);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 50px;
   cursor: pointer;
-  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
 }
 
-button:hover { background: #1557b0; }
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
 
+/* === ИНПУТЫ === */
 input {
   width: 100%;
-  padding: 0.6rem;
-  margin: 0.5rem 0;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  box-sizing: border-box;
+  padding: 0.8rem;
+  margin: 0.8rem 0;
+  border: 2px solid #ffcdd2;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-.action { margin: 1rem 0; }
+input:focus {
+  outline: none;
+  border-color: #ff80ab;
+  box-shadow: 0 0 10px rgba(255, 128, 171, 0.5);
+}
 
+/* === ЛОГ === */
 #eventsList {
   list-style: none;
   padding: 0;
-  max-height: 200px;
+  max-height: 220px;
   overflow-y: auto;
-  text-align: left;
+  background: #fff8fb;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid #ffcdd2;
   font-size: 0.9rem;
-  background: #f9f9f9;
-  border-radius: 6px;
-  padding: 0.5rem;
 }
 
 #eventsList li {
-  padding: 0.3rem 0;
-  border-bottom: 1px solid #eee;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #ff80ab;
+  color: #ad1457;
+}
+
+/* === ПЛАВАЮЩИЕ СЕРДЕЧКИ И ЦВЕТОЧКИ === */
+.floating {
+  position: absolute;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  color: #ff80ab;
+  font-size: 1.8rem;
+  animation-duration: 5s;
+}
+
+.flower {
+  color: #ff80ab;
+  font-size: 1.6rem;
+  animation-duration: 7s;
+}
+
+/* Анимация полёта */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  50% { transform: translateY(-20px) rotate(10deg); opacity: 1; }
+}
+
+/* Разные задержки для эффекта "случайности" */
+.floating:nth-child(1) { left: 10%; animation-delay: 0s; }
+.floating:nth-child(2) { left: 20%; animation-delay: 1s; }
+.floating:nth-child(3) { left: 35%; animation-delay: 2.5s; }
+.floating:nth-child(4) { left: 50%; animation-delay: 0.5s; }
+.floating:nth-child(5) { left: 65%; animation-delay: 3s; }
+.floating:nth-child(6) { left: 80%; animation-delay: 1.5s; }
+.floating:nth-child(7) { left: 15%; animation-delay: 4s; }
+.floating:nth-child(8) { left: 75%; animation-delay: 2s; }
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 480px) {
+  .container { width: 90%; padding: 1.5rem; }
 }

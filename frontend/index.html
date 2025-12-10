@@ -9,6 +9,15 @@
   <div class="container">
     <h1>Simple Wallet</h1>
 
+    <!-- Кнопка копирования адреса -->
+    <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #d81b60;">
+      Контракт: <code style="background: #ffeef8; padding: 2px 6px; border-radius: 4px;">0xE834D60bb38cB20aCCD7D7B88972929a0994D42e</code>
+      <button onclick="navigator.clipboard.writeText('0xE834D60bb38cB20aCCD7D7B88972929a0994D42e').then(()=>alert('Скопировано!'))" 
+              style="margin-left: 8px; font-size: 0.8rem; padding: 4px 8px; background: #ff80ab; color: white; border: none; border-radius: 20px; cursor: pointer;">
+        Копировать
+      </button>
+    </p>
+
     <p><strong>Баланс:</strong> <span id="balance">0</span> ETH</p>
     <p><strong>Владелец:</strong> <span id="owner">—</span></p>
 
@@ -29,7 +38,20 @@
     <ul id="eventsList"></ul>
   </div>
 
+  <!-- ПЛАВАЮЩИЕ СЕРДЕЧКИ И ЦВЕТОЧКИ (ДОЛЖНЫ БЫТЬ ПЕРЕД app.js) -->
+  <div class="floating heart">Heart</div>
+  <div class="floating flower">Cherry Blossom</div>
+  <div class="floating heart">Heart</div>
+  <div class="floating flower">Cherry Blossom</div>
+  <div class="floating heart">Heart</div>
+  <div class="floating flower">Cherry Blossom</div>
+  <div class="floating heart">Heart</div>
+  <div class="floating flower">Cherry Blossom</div>
+
+  <!-- Ethers.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.11.0/ethers.umd.min.js"></script>
+  
+  <!-- Твой скрипт (ПОСЛЕДНИЙ!) -->
   <script src="app.js"></script>
 </body>
 </html>
